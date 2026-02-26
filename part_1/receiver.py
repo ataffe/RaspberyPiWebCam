@@ -13,18 +13,19 @@ async def run_webrtc_agent(pc, signaling):
     async def on_iceconnectionstatechange():
         print("ICE connection state:", pc.iceConnectionState)
 
+    await signaling.connect()
     while True:
         obj = await signaling.receive()
         if isinstance(obj, RTCSessionDescription):
             await pc.setRemoteDescription(obj)
-
             if obj.type == "offer":
+                print("Received offer.")
                 await pc.setLocalDescription(await pc.createAnswer())
                 await signaling.send(pc.localDescription)
-        elif isinstance(obj, RTCIceCandidate):
             await pc.addIceCandidate(obj)
         elif obj is BYE:
             break
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Raspberry Pi camera streamer")
     add_signaling_arguments(parser)

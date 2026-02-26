@@ -26,11 +26,10 @@ async def run_webrtc_agent(pc, signaling):
             if obj.type == "offer":
                 await pc.setLocalDescription(await pc.createAnswer())
                 await signaling.send(pc.localDescription)
-        elif isinstance(obj, RTCIceCandidate):
-            await pc.addIceCandidate(obj)
         elif obj is BYE:
             print("Exiting")
             break
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Raspberry Pi camera streamer")
     add_signaling_arguments(parser)
