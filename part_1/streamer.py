@@ -1,7 +1,7 @@
 from aiortc.contrib.signaling import BYE, add_signaling_arguments, create_signaling
 import asyncio
 import argparse
-from aiortc import RTCPeerConnection, RTCIceCandidate, RTCSessionDescription
+from aiortc import RTCPeerConnection, RTCSessionDescription
 
 
 async def run_webrtc_agent(pc, signaling):
