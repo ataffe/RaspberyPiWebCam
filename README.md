@@ -1,4 +1,7 @@
-# RaspberyPiWebCam
+# Building a Low-Cost, Real-Time, Wireless Wi-Fi Cam with Python, WebRTC, and a Raspberry Pi
+
+![Image of a raspberry pi zero 2W in a 3D printed case](case/case_small.jpg)
+
 
 Repository for the medium article "Building a Low-Cost, Real-Time, Wireless Wi-Fi Cam with Python, WebRTC, and a Raspberry Pi"
 
