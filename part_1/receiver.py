@@ -4,7 +4,7 @@ import argparse
 from aiortc import RTCPeerConnection, RTCSessionDescription
 
 
-async def run_webrtc_agent(pc, signaling):
+async def run_webrtc_receiver_agent(pc, signaling):
     @pc.on("connectionstatechange")
     async def on_connectionstatechange():
         print("Connection state is %s", pc.connectionState)
@@ -37,7 +37,7 @@ if __name__ == "__main__":
     asyncio.set_event_loop(loop)
 
     try:
-        loop.run_until_complete(run_webrtc_agent(pc, signaling))
+        loop.run_until_complete(run_webrtc_receiver_agent(pc, signaling))
     except KeyboardInterrupt:
         pass
     finally:
